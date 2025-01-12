@@ -1,0 +1,33 @@
+# Sample NewOrderSingle messages ('|' shown in place of SOH). Comment lines describe the next order.
+# Valid buy, Toyota (TOPIX500, 0.5-yen tick)
+8=FIX.4.4|9=83|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0001|55=7203|54=1|38=500|40=2|44=2845.5|59=0|10=079|
+# Valid sell at the lowest legal price (limit-down)
+8=FIX.4.4|9=83|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0002|55=7203|54=2|38=100|40=2|44=2345.5|59=0|10=072|
+# Limit-up price 3,345.5 is off tick: above 3,000 yen the tick is 1 yen
+8=FIX.4.4|9=83|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0003|55=7203|54=1|38=100|40=2|44=3345.5|59=0|10=073|
+# Highest orderable price is 3,345
+8=FIX.4.4|9=81|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0004|55=7203|54=1|38=100|40=2|44=3345|59=0|10=229|
+# Above the daily limit
+8=FIX.4.4|9=81|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0005|55=7203|54=1|38=100|40=2|44=3400|59=0|10=222|
+# Off tick in a non-TOPIX500 name (5-yen tick between 3,000 and 5,000)
+8=FIX.4.4|9=81|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0006|55=2121|54=1|38=100|40=2|44=4122|59=0|10=219|
+# Not a multiple of the 100-share trading unit
+8=FIX.4.4|9=81|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0007|55=6758|54=1|38=150|40=2|44=3512|59=0|10=247|
+# Upper limit broadened 4x (TriIs, base 745): 1,300 is legal today
+8=FIX.4.4|9=81|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0008|55=4840|54=1|38=100|40=2|44=1300|59=0|10=226|
+# Lower side not broadened: 590 is below the 595 limit-down
+8=FIX.4.4|9=80|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0009|55=4840|54=2|38=100|40=2|44=590|59=0|10=189|
+# Halted symbol
+8=FIX.4.4|9=80|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0010|55=5016|54=1|38=100|40=2|44=612|59=0|10=171|
+# Alphanumeric code (new-style JPX code 130A)
+8=FIX.4.4|9=81|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0011|55=130A|54=2|38=200|40=2|44=1250|59=0|10=231|
+# Market buy, credit valued at the limit-up price
+8=FIX.4.4|9=73|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0012|55=9984|54=1|38=100|40=1|59=0|10=129|
+# Duplicate ClOrdID
+8=FIX.4.4|9=83|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0001|55=7203|54=1|38=100|40=2|44=2845.5|59=0|10=075|
+# Exceeds account credit (ACC002 has 50 million yen)
+8=FIX.4.4|9=83|35=D|49=CLIENT|56=JPXGW|1=ACC002|11=T-0013|55=6861|54=1|38=1000|40=2|44=61230|59=0|10=078|
+# Sub-0.1-yen price
+8=FIX.4.4|9=84|35=D|49=CLIENT|56=JPXGW|1=ACC001|11=T-0014|55=8306|54=1|38=100|40=2|44=1789.55|59=0|10=144|
+# Corrupted in transit (checksum mismatch)
+8=FIX.4.4|9=59|35=D|1=ACC001|11=T-0015|55=7203|54=1|38=100|40=2|44=2846.5|10=212|

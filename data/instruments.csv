@@ -1,0 +1,14 @@
+code,tick_table,base_price,trading_unit,expand_upper,expand_lower,halted
+# Illustrative reference data: real JPX codes, base prices chosen to exercise each table band.
+7203,TOPIX500,2845.5,100,0,0,0
+6758,TOPIX500,3512,100,0,0,0
+9984,TOPIX500,9870,100,0,0,0
+8306,TOPIX500,1789.5,100,0,0,0
+6861,TOPIX500,61230,100,0,0,0
+9983,TOPIX500,48120,100,0,0,0
+4840,OTHER,745,100,1,0,0
+7743,OTHER,735,100,1,0,0
+3350,OTHER,48,100,0,0,0
+2121,OTHER,4120,100,0,0,0
+130A,OTHER,1234,100,0,0,0
+5016,OTHER,612,100,0,0,1

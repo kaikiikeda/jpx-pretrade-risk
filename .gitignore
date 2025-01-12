@@ -1,0 +1,6 @@
+build/
+out/
+*.o
+.vscode/
+.idea/
+__pycache__/

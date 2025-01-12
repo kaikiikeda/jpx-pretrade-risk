@@ -1,0 +1,28 @@
+cmake_minimum_required(VERSION 3.20)
+project(jpx_pretrade_risk CXX)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+if(MSVC)
+  add_compile_options(/W4)
+else()
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+add_library(jpxrisk src/fix.cpp src/risk.cpp src/refdata.cpp)
+target_include_directories(jpxrisk PUBLIC include)
+
+add_executable(jpx_check apps/jpx_check.cpp)
+target_link_libraries(jpx_check jpxrisk)
+add_executable(replay apps/replay.cpp)
+target_link_libraries(replay jpxrisk)
+add_executable(bench apps/bench.cpp)
+target_link_libraries(bench jpxrisk)
+
+enable_testing()
+add_executable(unit_tests tests/test_unit.cpp)
+target_link_libraries(unit_tests jpxrisk)
+add_test(NAME unit COMMAND unit_tests)
