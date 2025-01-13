@@ -12,6 +12,10 @@ The rules come straight from JPX's current published tables. Correctness is chec
 | Throughput | ≈ 1.8 million orders/s on one core |
 | Dependencies | none (C++20 standard library; Python 3 only for the test oracle) |
 
+## Background
+
+I first learned how pre-trade risk controls work during an internship in March 2024, where I was introduced to the checks a broker runs before an order reaches the exchange. This repository is my own independent rebuild of that concept, written from scratch in 2025 using only JPX's public rules and tables. It contains no code, data or proprietary logic from the internship. The goal was to understand the problem properly by implementing it end to end, then to test it rigorously (an independent oracle, mutation testing, and a latency benchmark).
+
 ## What it checks
 
 Each order is checked in a fixed order and rejected for the **first** rule it breaks:

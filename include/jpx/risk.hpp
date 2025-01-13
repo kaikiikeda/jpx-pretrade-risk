@@ -1,5 +1,9 @@
 // Pre-trade risk engine for JPX cash-equity orders.
 //
+// Background: an independent 2025 rebuild of pre-trade risk concepts the author first
+// learned during an internship in March 2024. Written from scratch from JPX's public
+// rules; contains no code or proprietary logic from that internship. See README.
+//
 // Every incoming NewOrderSingle is checked in a fixed order and either accepted or
 // rejected with exactly one reason (the first rule it breaks). Checks fall into two
 // groups:
